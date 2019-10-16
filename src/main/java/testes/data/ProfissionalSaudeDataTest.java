@@ -17,6 +17,17 @@ public class ProfissionalSaudeDataTest {
 		return ps;
 	}
 
+	public static ProfissionalSaude getPSSucesso() {
+		ProfissionalSaude ps = new ProfissionalSaude();
+		ps.setCpf("992.161.610-27");
+		ps.setLogin("residedencia-lo");
+		ps.setNome("Ramon Teste");
+		ps.setEmail(getValorAleatorio() + "ra@mon");
+		ps.setIdProfissional("idProfiss333");
+		ps.setEspecialidade("ACUPUNTURA - MED001");
+		return ps;
+	}
+	
 	public static ProfissionalSaude getPsCpfInvalido() {
 		ProfissionalSaude ps = new ProfissionalSaude();
 		ps.setCpf("109.000.999-98");

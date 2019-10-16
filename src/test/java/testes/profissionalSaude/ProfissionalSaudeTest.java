@@ -16,6 +16,7 @@ import testes.dominio.ProfissionalSaude;
 import testes.pages.FormProfissionalSaude;
 import testes.pages.Login;
 import testes.pages.Menu;
+import testes.pages.Popup;
 
 public class ProfissionalSaudeTest {
 
@@ -98,12 +99,15 @@ public class ProfissionalSaudeTest {
 		assertFalse(sucesso);
 	}
 
-	//@Test
-	public void cadastrarNovoProfissionalSaude() {
-		FormProfissionalSaude formProfissionalSaude = new FormProfissionalSaude(selenium, ProfissionalSaudeDataTest.getProfissionalSaudeCompleto());
+	@Test
+	public void cadastrarNovoProfissionalSaude() throws InterruptedException {
+		FormProfissionalSaude formProfissionalSaude = new FormProfissionalSaude(selenium, ProfissionalSaudeDataTest.getPSSucesso());
 		formProfissionalSaude.preencheForm();		
+		Thread.sleep(1000);
 		Boolean sucesso = selenium.getDriver().getPageSource().contains(MENSAGEM_SUCESSO);
 		assertTrue(sucesso);
+		Popup popup = new Popup(selenium);
+		popup.clickOk();
 	}
 	
 	@Test
